@@ -1,4 +1,18 @@
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'staging'
+      version:
+        description: 'Version to deploy'
+        required: false
+        default: 'latest'
+      run_tests:
+        description: 'Run tests before deployment'
+        type: boolean
+        default: true
 jobs:
  build:
   name: Hello world
